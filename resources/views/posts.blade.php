@@ -12,45 +12,35 @@
 </head>
 
 <body>
+   
+{{-- here posts variable store array of all posts and with its metadata so we can displat the metadata and also the body --}}
+  <?php  foreach($posts as $post):  ?>
+
 
     <article>
-               
+       
+        <h1> 
+          
+          <a href="/posts/<?=  $post-> slug;   ?> ">
+            <?=  $post-> title;   ?> 
+          </a>
+        
+        
+        </h1>  
 
-            <a href="/posts/my-first-post"><h1> post 1 </h1> </a>     
-                 <p>
-                        heellooo it is mee
-                 </p>
+        <div>
+          <?=  $post-> excerpt ;   ?> 
+        </div>
+
+
 
 
     </article>
+  
 
-    {{-- 2 --}}
+  
+  <?php endforeach; ?>
 
-    <article>
-
-        <a href="/posts/my-secound-post"><h1> post 2 </h1> </a>     
-
-          <p>
-            heellooo it is mee again 
-          </p>
-
-
-     </article>
-
-
-  {{-- 3 --}}
-  <article>
-
-    <a href="/posts/my-3-post"><h1> post 3  </h1> </a>     
-
-      <p>
-        heellooo it is mee again 
-      </p>
-
-
- </article>
-
-
-    
+   
 </body>
 </html>

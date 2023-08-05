@@ -1,7 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Redirect;
+use App\Models\Post;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redirect;
+use League\CommonMark\Extension\FrontMatter\Data\SymfonyYamlFrontMatterParser;
+use Symfony\Component\Yaml\Yaml;
+use Spatie\YamlFrontMatter\YamlFrontMatter;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,35 +20,50 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('posts');
+Route::get('/', function ()
+
+ {  
+    
+    // fetch all files using file model 
+    $files= File::files(resource_path("posts/"));
+    // store array of files inside variable 
+    $posts =[];
+    // loop over files and store the value in file variable then the function will extract the meta from file then will build object of  post class and store the metaadata which fetch it from file into the attributes that inside post object 
+    $posts= array_map(function($file)
+    {    
+        $document= YamlFrontMatter::parseFile($file);  //here we extract the metadata from file using pasrefile method and storing it in document variable
+        return new Post(
+         $document->title,
+         $document->excerpt,
+         $document->date,
+         $document->body(),
+         $document->slug
+       );
+    }  //end fun
+    
+    ,$files );
+     
+
+       return view('posts',
+       ['posts' => $posts]);
+
+    //    way to display the posts without its metadata
+    // $posts = Post::all();
+    // return view('posts',
+    // ['posts' => $posts]);
+
+
+
 });
 
 
 Route::get('posts/{post}', function ($slug) {
 
-    // find post using its slug and pass the value to view "post"
+    // 2way , find post using its slug and pass the value to view "post"
 
-    // // get the path of file wich wil be redirect to it 
-    // $path = __DIR__ . "/../resources/posts/{$slug}.html";
+     
 
-    // //   check if this file exists
-    // if (!file_exists($path)) {
-    //     return redirect('/');
-    // }
-
-    // // fetch the file data and store it inside the cach for specifi time
-    // $post =  cache()->remember("posts.{slu}", 5, function () use ($path) {
-    //     return  file_get_contents($path);
-    // });
-
-    // // fetch the file data
-
-
-    // // view this page and pass specific value to variable inside this page 
-    // return view('/post', ['post' => $post]);
-
-    // // to put constrains on wildcard the contents that inside the curly brackets
+return view('/post', ['post' => $post = Post::find($slug) ]);
 
 
 })->where('post', '[A-z0-9_\-]+');
