@@ -24,7 +24,6 @@ Route::get('/', function ()
 
  {  
   
-     //way to display the posts without its metadata
     $posts = Post::all();
     return view('posts',
     ['posts' => $posts]);
@@ -54,10 +53,6 @@ Route::get('/', function ()
     //    ['posts' => $posts]);
 
 
-
-
-
-
 });
 
 
@@ -65,8 +60,7 @@ Route::get('posts/{post}', function ($slug) {
 
     // 2way , find post using its slug and pass the value to view "post"
 
-     
-
+    
 return view('/post', ['post' => $post = Post::find($slug) ]);
 
 

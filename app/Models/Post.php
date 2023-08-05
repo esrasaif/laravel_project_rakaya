@@ -49,16 +49,21 @@ class Post
     // methods
    public static function find($slug)
    {
+    // 1way
 
+    // // //   check if this file path exists
+    // if (!file_exists( $path = resource_path("posts/{$slug}.html"))) {
+    //    throw new ModelNotFoundException() ;
+    // }
 
-    // //   check if this file path exists
-    if (!file_exists( $path = resource_path("posts/{$slug}.html"))) {
-       throw new ModelNotFoundException() ;
-    }
-
-    // // fetch the file data and store it inside the cach for specifi time
-    return cache()->remember("posts.{$slug}", 1200, fn()=> file_get_contents($path) );
-
+    // // // fetch the file data and store it inside the cach for specifi time
+    // return cache()->remember("posts.{$slug}", 1200, fn()=> file_get_contents($path) );
+  
+    // 2way
+    // from all post we eill find the one that matchs the requested
+    $posts =static::all();
+    // from all posts we want the first one that match the sslug inside the page that requested
+    return $posts->firstWhere('slug',$slug);
 
 
    }
