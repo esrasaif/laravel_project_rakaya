@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\File;
+use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 class Post
 {
@@ -67,12 +68,24 @@ class Post
 // this function to fetch all files of posts 
    public static function all()
    {
-    // file it is bulit in model and {files} methos used for reading the content of the folder it will return array of all the paths of files inside folder
-      $files= File::files(resource_path("posts/"));
-      
-    //   loop over files array and mapp it to file variable 
-     return array_map( fn($file)=> $file-> getContents() , $files ) ;  
-
+  
+    $files= File::files(resource_path("posts/"));
+    // using collect function from collections
+    return collect($files)
+    // loop over files and store the value in file variable then the function will extract the meta from file then will build object of  post class and store the metaadata which fetch it from file into the attributes that inside post object 
+    ->map(function($file)
+        {    
+            $document= YamlFrontMatter::parseFile($file);  //here we extract the metadata from file using pasrefile method and storing it in document variable
+            return new Post(
+            $document->title,
+            $document->excerpt,
+            $document->date,
+            $document->body(),
+            $document->slug
+        );
+        }  //end fun
+        
+     ,$files );
    }
    //end find fun
 

@@ -23,35 +23,11 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 Route::get('/', function ()
 
  {  
-     // 3way to display posts using collection methods
-       // fetch all files using file model 
-    $files= File::files(resource_path("posts/"));
-    // using collect function from collections
-    $posts = collect($files)
-    // loop over files and store the value in file variable then the function will extract the meta from file then will build object of  post class and store the metaadata which fetch it from file into the attributes that inside post object 
-    ->map(function($file)
-        {    
-            $document= YamlFrontMatter::parseFile($file);  //here we extract the metadata from file using pasrefile method and storing it in document variable
-            return new Post(
-            $document->title,
-            $document->excerpt,
-            $document->date,
-            $document->body(),
-            $document->slug
-        );
-        }  //end fun
-        
-     ,$files );
-     
-
-       return view('posts',
-       ['posts' => $posts]);
-
-
-
-
-
-
+  
+     //way to display the posts without its metadata
+    $posts = Post::all();
+    return view('posts',
+    ['posts' => $posts]);
 
     // 2way to display posts using arraymap
     // // fetch all files using file model 
@@ -78,10 +54,7 @@ Route::get('/', function ()
     //    ['posts' => $posts]);
 
 
-    //    way to display the posts without its metadata
-    // $posts = Post::all();
-    // return view('posts',
-    // ['posts' => $posts]);
+
 
 
 
