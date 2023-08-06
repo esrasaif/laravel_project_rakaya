@@ -1,1 +1,3 @@
 *.sqlite*
+
+rakaya_laravel_project\app\Models\Post.php

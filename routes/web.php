@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
 use League\CommonMark\Extension\FrontMatter\Data\SymfonyYamlFrontMatterParser;
 use Symfony\Component\Yaml\Yaml;
-use Spatie\YamlFrontMatter\YamlFrontMatter;
+use Spatie\YamlFrontMatter\YamlFrontMatter; 
 
 
 /*
@@ -56,12 +56,12 @@ Route::get('/', function ()
 });
 
 
-Route::get('posts/{post}', function ($slug) {
+Route::get('posts/{post}', function ($id) {
 
     // 2way , find post using its slug and pass the value to view "post"
 
     
-return view('/post', ['post' => $post = Post::foundOrFailed($slug) ]);
+return view('/post', ['post' => $post = Post::findOrFail($id) ]);
 
 
 })->where('post', '[A-z0-9_\-]+');
