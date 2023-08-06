@@ -1,34 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-layout>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <link rel="stylesheet" href="/app.css">
-
-
-    <title>post</title>
-
-</head>
-
-<body>
     
     <article>
                     
        <h1>
-        <?= $post->title ; ?>
+        {{$post->title }}
        </h1>  
 
        <div> 
-        <?= $post->body ;?>
+        {{-- <?= $post->body ;?> --}}
+        {!! $post->body !!}  
+
+         {{-- dispaly the content of html without the markups --}}
        </div>
 
      </article>
 
      <a href="/">back</a>
 
-</body>
 
-</html>
+ </x-layout>

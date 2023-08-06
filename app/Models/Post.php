@@ -63,6 +63,18 @@ class Post
     //end find fun
 
 
+    // check if the request found
+    public static function  foundOrFailed($slug)
+    {
+        $posts = static::find($slug);
+        if(!$posts){
+
+        }
+        return $posts;
+
+    }
+
+
     // this function to fetch all files of posts 
     public static function all()
     {
