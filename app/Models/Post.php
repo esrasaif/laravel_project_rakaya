@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use App\Models\Category;
+use App\Models\User;
+
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -22,5 +25,21 @@ class Post extends Model
 
     }
     // end fun
+
+    public function user()
+    {
+    //    here we define the relationship type between any post object and the category class
+        return $this->belongsTo(User::class);
+
+
+    }
+    // end fun
+
+
+
+
+
+
+
 }
 // end class
