@@ -56,12 +56,13 @@ Route::get('/', function ()
 });
 
 
-Route::get('posts/{post}', function ($id) {
+Route::get('posts/{post:slug}', function (Post $post) {
 
-    // 2way , find post using its slug and pass the value to view "post"
+    //  find post using its id and pass the value to view "post"
+return view('/post', ['post' => $post ]);
 
     
-return view('/post', ['post' => $post = Post::findOrFail($id) ]);
+// return view('/post', ['post' => $post = Post::findOrFail($id) ]);
 
 
 })->where('post', '[A-z0-9_\-]+');

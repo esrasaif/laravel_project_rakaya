@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+   
+// here we determaine which attributes that allowed to be mass assignment  any thing else is ignored
+    // protected $fillable = ['title','excerpt','body'];
+    protected $guarded=['id'];
 }
