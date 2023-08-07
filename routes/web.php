@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
@@ -23,8 +24,10 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 Route::get('/', function ()
 
  {  
-  
-    $posts = Post::all();
+    //  get the posts and the category in same query , that will fix n+1 problem which mean many sql excute each time we reload the page and that will affect to the performane(:
+    $posts = Post::with('category')->get();
+    // $posts = Post::all();
+
     return view('posts',
     ['posts' => $posts]);
 
@@ -56,7 +59,7 @@ Route::get('/', function ()
 });
 
 
-Route::get('posts/{post:slug}', function (Post $post) {
+Route::get('posts/{post}', function (Post $post) {
 
     //  find post using its id and pass the value to view "post"
 return view('/post', ['post' => $post ]);
@@ -66,3 +69,11 @@ return view('/post', ['post' => $post ]);
 
 
 })->where('post', '[A-z0-9_\-]+');
+
+
+Route::get('categories/{category}', function (Category $category) {
+
+return view('/posts', ['posts' => $category->posts ]);
+
+
+})->where('category', '[A-z0-9_\-]+');

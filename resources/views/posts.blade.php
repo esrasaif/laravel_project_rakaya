@@ -9,15 +9,19 @@
        
         <h1> 
           
-          <a href="/posts/<?=  $post-> slug ;   ?> ">
-            {!!  $post-> title !!} 
+          <h4>title</h4>
+          <a href="/posts/<?=  $post-> id ;   ?> ">
+            {!!  $post->title !!} 
           </a>
         
         
         </h1>  
 
         <div>
-          {{-- { !! $post-> excerpt !! } --}}
+
+          <h4>category</h4>
+          <a href="/categories/{{$post->category->id}}">{{$post->category->name}}</a>
+
         </div>
 
 
