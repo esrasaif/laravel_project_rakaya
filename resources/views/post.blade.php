@@ -4,8 +4,10 @@
     <article>
                     
        <h1>   {!!  $post->title !!}   </h1>  
- 
-          <a href="/categories/{{$post->category->id}}">{{$post->category->name}}</a>
+    
+       wrote by: <a href="/authors/{{$post->author->username}}">{{$post->author->username}}  </a>
+       <br>
+       category :  <a href="/categories/{{$post->category->id}}">{{$post->category->name}}</a>
 
 
        <div> 

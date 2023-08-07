@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class CactegoryFactory extends Factory
+class CategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,9 @@ class CactegoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' =>  fake()->sentence(),
-            'slug' => fake()->sentence()
+           
+            'slug' => $this->faker->slug,
+            'name' =>$this->faker->word
         ];
     }
 }

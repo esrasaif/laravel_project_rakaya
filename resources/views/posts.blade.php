@@ -10,9 +10,11 @@
         <h1> 
           
           <h4>title</h4>
-         wrote by: {{$post->user->name}}   <a href="/posts/<?=  $post-> id ;   ?> ">
+          wrote by: <a href="authors/{{$post->author->username}}">{{$post->author->username}}  </a>
+          <br>
 
-            {!!  $post->title !!} 
+          <a href="/posts/<?=  $post->id ;   ?> ">
+          {!!  $post->title !!} 
           </a>
         
         

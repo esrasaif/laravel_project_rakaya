@@ -19,12 +19,12 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::factory(),
             'category_id' => Category::factory(),
-            'title' => fake()->sentence(),
-            'slug' => fake()->sentence(),
-            'body' => fake()->sentence(),
-            'excerpt' =>fake()->paragraph()
+            'user_id' => User::factory(),
+            'slug' => fake()->sentence,
+            'title' => fake()->sentence,
+            'body' => fake()->sentence,
+            'excerpt' =>fake()->paragraph
 
         ];
     }

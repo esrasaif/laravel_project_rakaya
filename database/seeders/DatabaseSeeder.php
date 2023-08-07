@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
 
  
 
-       $user= \App\Models\User::factory(3)->create();
+        Post::factory(5)->create()->where('user_id',2);
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
@@ -32,26 +32,26 @@ class DatabaseSeeder extends Seeder
         // ]);
 
 
-       $cat1= Category::create([
-            'name'=>'family',
-            'slug'=>'family'
-        ]);
+    //    $cat1= Category::create([
+    //         'name'=>'family',
+    //         'slug'=>'family'
+    //     ]);
 
-       $cat2= Category::create([
-            'name'=>'funy',
-            'slug'=>'funy'
-        ]);
+    //    $cat2= Category::create([
+    //         'name'=>'funy',
+    //         'slug'=>'funy'
+    //     ]);
 
 
-        Post::create([
-            'user_id'=> 1,
-            'category_id'=>1,
-            'title'=>'laugh wyih me',
-            'slug'=>'funy post',
-            'body'=>'hello',
-            'excerpt'=>'excerpt post'
+    //     Post::create([
+    //         'user_id'=> 1,
+    //         'category_id'=>1,
+    //         'title'=>'laugh wyih me',
+    //         'slug'=>'funy post',
+    //         'body'=>'hello',
+    //         'excerpt'=>'excerpt post'
        
-        ]);
+    //     ]);
 
 
 
