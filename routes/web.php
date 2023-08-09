@@ -26,11 +26,24 @@ Route::get('/', function ()
 
  {  
     //  get the posts and the category in same query , that will fix n+1 problem which mean many sql excute each time we reload the page and that will affect to the performane(:
-    $posts = Post::latest('published_at')->with('category','author')->get();
-    // $posts = Post::all();
+    $posts = Post::latest()->with('category','author');
+     
+    // after we got the posts here we query specific post accourding to the title or the body that the user enterd
+     if(request('search'))
+   {
+        $posts
+        ->where( 'title','like','%'.request('search').'%' )
+        ->orWhere( 'body','like','%'.request('search').'%' );
+
+
+   }
+
 
     return view('posts',
-    ['posts' => $posts]);
+    ['posts' => $posts->get(),
+     'categories' => Category::all()
+    
+    ]);
 
     // 2way to display posts using arraymap
     // // fetch all files using file model 
@@ -57,7 +70,7 @@ Route::get('/', function ()
     //    ['posts' => $posts]);
 
 
-});
+})->name('home');
 
 
 Route::get('posts/{post}', function (Post $post) {
