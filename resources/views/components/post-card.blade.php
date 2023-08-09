@@ -14,9 +14,8 @@
         <header class="mt-8 lg:mt-0">
 
             <div class="space-x-2">
-                <x-category-button :category= "$post->category"  />
+                <x-category-button :category= "{{$post->category}}" />
 
-              
             </div>
 
             <div class="mt-4">

@@ -28,6 +28,28 @@ class Post extends Model
 
     //methods
 
+
+     public function scopeFilter($query ,array $filters)
+      {
+        $query->when( $filters['search'] ?? false , function($query,$search) 
+        {
+            $query
+            ->where( 'title','like','%'.$search.'%' )
+            ->orWhere( 'body','like','%'.$search.'%' );
+    
+
+        });
+        
+    }
+    // end fun
+
+
+
+
+
+
+
+
     public function category()
     {
     //    here we define the relationship type between any post object and the category class
