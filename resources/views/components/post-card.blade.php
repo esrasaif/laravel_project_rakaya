@@ -11,11 +11,12 @@
     </div>
 
     <div class="flex-1 flex flex-col justify-between">
+
         <header class="mt-8 lg:mt-0">
 
+            {{-- category --}}
             <div class="space-x-2">
-                <x-category-button :category= "{{$post->category}}" />
-
+                <x-category-button :category= "{{ $post->category }}" />
             </div>
 
             <div class="mt-4">

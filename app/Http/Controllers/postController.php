@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Post;
@@ -28,13 +27,10 @@ class postController extends Controller
 
     public function show(Post $post )
     {
-        return view('/post', ['post' => $post ]);
+        return view('/post', ['post' => $post ,
+        'categories' => Category::all()]);
 
 
     }
     // end show fun
-
-
-
-
 }//end class
