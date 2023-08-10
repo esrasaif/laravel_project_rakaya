@@ -29,14 +29,14 @@ Route::get('/', [postController::class , 'index']           )->name('home');
 Route::get('posts/{post}',  [postController::class , 'show'])->where('post', '[A-z0-9_\-]+');
 
 
-Route::get('categories/{category}', function (Category $category) 
-{
-    return view('/posts', ['posts' => $category->posts ,
-    'currentCategory' => $category ,
-    'categories' => Category::all() ]);
-})
-->where('category', '[A-z0-9_\-]+')
-->name('category');
+// Route::get('categories/{category}', function (Category $category) 
+// {
+//     return view('/posts', ['posts' => $category->posts ,
+//     'currentCategory' => $category ,
+//     'categories' => Category::all() ]);
+// })
+// ->where('category', '[A-z0-9_\-]+')
+// ->name('category');
 
 
 // find the author as its primary key the usernamme not the id 

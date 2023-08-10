@@ -7,16 +7,18 @@ use App\Models\Post;
 use App\Models\User;
 
 class postController extends Controller
-{
+{  
+
     public function index()
     {
 
-            $posts = Post::latest()->filter(request(['search']))->get(); 
+            $posts = Post::latest()->filter(request(['search','category']))->get(); 
             
             return view('posts',
             ['posts' => $posts,
-            'categories' => Category::all()
-            
+            'categories' => Category::all(),
+            'currentCategory'=>  Category::firstWhere('slug', request('category'))
+            // here we save the current selection of category to use it after the user selected 
             ]);
 
 
