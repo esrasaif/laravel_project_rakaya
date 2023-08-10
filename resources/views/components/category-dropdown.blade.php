@@ -28,7 +28,7 @@
 
            <x-dropdownItemStyle
             {{-- href="/categories/{{$category->slug}}"       previouse mathod to display categories --}} 
-            href="/?category={{$category->slug}}" 
+            href="/?category={{$category->slug}}&{{http_build_query( request()->except('category') )}}" 
 
             :active="request()->is('categories/'.$category->id)" >  
             {{ucwords($category->name)}} 

@@ -22,10 +22,6 @@ class Post extends Model
     // this will make the query on this tables in same time we load the categories  , this method will solved n+1 problem , here we add it insted of add "load" method on objects that we want to load another object when it excute  in route file 
     protected $with = ['category','author'];
 
-
-
-
-
     //methods
 
 //    query value sent automatically but the values of filter determind in the controler
