@@ -21,14 +21,14 @@
     </x-slot>    
 
     {{-- links , here the value for slot in dropdown page --}}
-<x-dropdownItemStyle href="/" :active="request()->routeIs('home')" > All </x-dropdownItemStyle>
+<x-dropdownItemStyle href="/?{{http_build_query( request()->except('category','page') )}}" :active="request()->routeIs('home')" > All </x-dropdownItemStyle>
 
 
       @foreach($categories as $category)
 
            <x-dropdownItemStyle
             {{-- href="/categories/{{$category->slug}}"       previouse mathod to display categories --}} 
-            href="/?category={{$category->slug}}&{{http_build_query( request()->except('category') )}}" 
+            href="/?category={{$category->slug}}&{{http_build_query( request()->except('category','page') )}}" 
 
             :active="request()->is('categories/'.$category->id)" >  
             {{ucwords($category->name)}} 

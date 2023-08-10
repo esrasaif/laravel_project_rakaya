@@ -11,16 +11,27 @@ class postController extends Controller
 
     public function index()
     {
-
-            $posts = Post::latest()->filter(request(['search','category','author']))->get(); 
-            
+           $posts = Post::latest()->filter(request(['search','category','author']))->paginate(6)->withQueryString(); 
             return view('posts.index',
             ['posts' => $posts  ]);
-
-
-
     }
     // end index fun
+
+    // public function index()
+    // {
+    //        $posts = Post::latest()->filter(request(['search','category','author']))->get(); 
+    //         return view('posts.index',
+    //         ['posts' => $posts  ]);
+    // }
+    // // end index fun
+
+
+
+
+
+
+
+
 
 
     public function show(Post $post )
