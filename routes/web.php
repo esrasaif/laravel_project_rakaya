@@ -42,8 +42,7 @@ Route::get('posts/{post}',  [postController::class , 'show'])->where('post', '[A
 // find the author as its primary key the usernamme not the id 
 Route::get('authors/{author:username}', function (User $author) {
 //    dd($author);
-    return view('/posts', ['posts' => $author->posts ,
-    'categories' => Category::all()]);
+    return view('posts.show', ['posts' => $author->posts ]);
     
     
     });

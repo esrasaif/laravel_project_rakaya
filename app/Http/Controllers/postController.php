@@ -12,14 +12,10 @@ class postController extends Controller
     public function index()
     {
 
-            $posts = Post::latest()->filter(request(['search','category']))->get(); 
+            $posts = Post::latest()->filter(request(['search','category','author']))->get(); 
             
-            return view('posts',
-            ['posts' => $posts,
-            'categories' => Category::all(),
-            'currentCategory'=>  Category::firstWhere('slug', request('category'))
-            // here we save the current selection of category to use it after the user selected 
-            ]);
+            return view('posts.index',
+            ['posts' => $posts  ]);
 
 
 
@@ -29,8 +25,7 @@ class postController extends Controller
 
     public function show(Post $post )
     {
-        return view('/post', ['post' => $post ,
-        'categories' => Category::all()]);
+        return view('posts.show', ['post' => $post ]);
 
 
     }
