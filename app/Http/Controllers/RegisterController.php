@@ -34,9 +34,9 @@ class RegisterController extends Controller
         // 1way for encrypt password here   , 2way in the user file by create mutator method
         // $validatedAttributes['password']= bcrypt($validatedAttributes['password']);
 
-
-        // dd('sucess creat user');
-        User::create($validatedAttributes);
+     //log in the user
+      $user=  User::create($validatedAttributes);
+      auth()->login($user);
 
         // here automatically this flash message will stored in the session so we can access to it across the session
         return redirect('/')->with("success","Welcome , your account created !");

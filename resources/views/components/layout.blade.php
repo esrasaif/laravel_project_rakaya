@@ -21,11 +21,25 @@
             </div>
 
             <div class="mt-8 md:mt-0">
-                <a href="/" class="text-xs font-bold uppercase">Home Page</a>
 
-                <a href="#" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
+            @auth
+
+             <form action="/logOut" method="POST" class="text-xs font-bold uppercase">
+                    @csrf
+                    <button type="submit"  class="bg-blue-900 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">Log Out</button>
+             </form>
+
+            @else   
+
+            <a href="/register" class="bg-blue-900 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">Register</a>
+            <a href="/logIn" class="bg-blue-900 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5" >Log In</a>
+
+            @endauth
+
+                {{-- <a href="#" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
                     Subscribe for Updates
-                </a>
+                </a> --}}
+
             </div>
         </nav>
          

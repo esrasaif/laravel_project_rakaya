@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\postController;
+use App\Http\Controllers\SessionsController;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
@@ -19,8 +20,9 @@ Route::get('/', [postController::class , 'index'])->name('home');
 
 Route::get('posts/{post}',  [postController::class , 'show'])->where('post', '[A-z0-9_\-]+');
 
-Route::get('/register',  [RegisterController::class , 'createAccount']);
-Route::post('/register',  [RegisterController::class , 'storeNewUser']);
+Route::get('/register',  [RegisterController::class , 'createAccount'])->middleware('guest');
+Route::post('/register',  [RegisterController::class , 'storeNewUser'])->middleware('guest');
+Route::post('/logOut',  [SessionsController::class , 'destroySession']);
 
 
 // Route::get('categories/{category}', function (Category $category) 
