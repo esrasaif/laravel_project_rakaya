@@ -28,7 +28,9 @@
                 </a>
             </div>
         </nav>
-
+         
+        {{-- here flash messages --}}
+        <x-flash/> 
 
         {{$slot}}
 
