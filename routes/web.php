@@ -22,7 +22,12 @@ Route::get('posts/{post}',  [postController::class , 'show'])->where('post', '[A
 
 Route::get('/register',  [RegisterController::class , 'createAccount'])->middleware('guest');
 Route::post('/register',  [RegisterController::class , 'storeNewUser'])->middleware('guest');
-Route::post('/logOut',  [SessionsController::class , 'destroySession']);
+
+Route::post('/logOut',  [SessionsController::class , 'destroySession'])->middleware('auth');
+
+
+Route::get('/logIn',  [SessionsController::class , 'createSession'])->middleware('guest');
+Route::post('/logIn',  [SessionsController::class , 'storeSession'])->middleware('guest');
 
 
 // Route::get('categories/{category}', function (Category $category) 

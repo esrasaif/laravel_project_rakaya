@@ -1,7 +1,10 @@
 
 <header class="max-w-xl mx-auto mt-20 text-center">
-    <h1 class="text-4xl">
-        Latest <span class="text-blue-500">Laravel From Scratch</span> News
+    <h1 class="text-2xl mb-4 mt-2">
+        <span class="text-blue-500">AI-based medical</span> 
+       transcription and summarization tool for enhanced healthcare documentation.
+
+
     </h1>
 
   
