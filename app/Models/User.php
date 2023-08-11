@@ -43,6 +43,13 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+// this method handle attributes from form
+// 
+//    public function setpasswordAttribute($password)
+//     {
+
+//           $this->attributes['password']= 'oo';
+//     }
 
     public function posts()
     {

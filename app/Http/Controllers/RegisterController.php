@@ -30,10 +30,13 @@ class RegisterController extends Controller
             // 'password'=>['required','min:8','max:255'],
         
         ]);
+ 
+        // 1way for encrypt password here   , 2way in the user file by create mutator method
+        $validatedAttributes['password']= bcrypt($validatedAttributes['password']);
 
 
         // dd('sucess creat user');
-        User::create($validatedAttributes );
+        User::create($validatedAttributes);
         return redirect('/');
 
 
