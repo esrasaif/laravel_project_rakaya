@@ -32,7 +32,7 @@ class RegisterController extends Controller
         ]);
  
         // 1way for encrypt password here   , 2way in the user file by create mutator method
-        $validatedAttributes['password']= bcrypt($validatedAttributes['password']);
+        // $validatedAttributes['password']= bcrypt($validatedAttributes['password']);
 
 
         // dd('sucess creat user');

@@ -45,11 +45,11 @@ class User extends Authenticatable
 
 // this method handle attributes from form
 // 
-//    public function setpasswordAttribute($password)
-//     {
+   public function setpasswordAttribute($password)
+    {
 
-//           $this->attributes['password']= 'oo';
-//     }
+         $this->attributes['password']=  bcrypt($password);
+    }
 
     public function posts()
     {
