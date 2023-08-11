@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\postController;
 use App\Models\Category;
 use App\Models\Post;
@@ -16,6 +18,9 @@ Route::get('/', [postController::class , 'index'])->name('home');
 
 
 Route::get('posts/{post}',  [postController::class , 'show'])->where('post', '[A-z0-9_\-]+');
+
+Route::get('/register',  [RegisterController::class , 'createAccount']);
+Route::post('/register',  [RegisterController::class , 'storeNewUser']);
 
 
 // Route::get('categories/{category}', function (Category $category) 

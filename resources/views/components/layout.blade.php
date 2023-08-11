@@ -4,6 +4,9 @@
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+{{-- image in title bar --}}
+<link rel="icon" type="image/x-icon" href="/images/tinywow_change_bg_photo_24059822.png">
+
 {{-- alpine.js   javascript framework --}}
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.3/dist/cdn.min.js"></script>
 
