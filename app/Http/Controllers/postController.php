@@ -41,4 +41,16 @@ class postController extends Controller
 
     }
     // end show fun
+
+
+    public function createPost(Post $post )
+    {
+        return view('posts.createPost', ['post' => $post ]);
+
+
+    }
+    // end show fun
+
+
+
 }//end class
