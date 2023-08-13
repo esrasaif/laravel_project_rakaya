@@ -29,7 +29,9 @@ Route::post('/logOut',  [SessionsController::class , 'destroySession'])->middlew
 Route::get('/logIn',  [SessionsController::class , 'createSession'])->middleware('guest');
 Route::post('/logIn',  [SessionsController::class , 'storeSession'])->middleware('guest');
 
-Route::get('/admin/posts/createPost',  [postController::class , 'createPost']);
+Route::get('/admin/posts/createPost',  [postController::class , 'createPost'])->middleware('admin');
+Route::post('/admin/posts',  [postController::class , 'storePost'])->middleware('admin');
+
 
 // Route::get('categories/{category}', function (Category $category) 
 // {

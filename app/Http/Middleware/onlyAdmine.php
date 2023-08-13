@@ -16,7 +16,7 @@ class onlyAdmine
     public function handle(Request $request, Closure $next): Response
     {  
     //    check if there is authenticated user then check if it has this username
-        if(auth()->user()?->username!='esrasaif' )
+        if(auth()->user()?->username !='esrasaif' )
            {
             abort(403);
            }
