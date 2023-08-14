@@ -8,7 +8,7 @@
   @if( $posts->count())
   <x-posts-grid :posts="$posts"  />
   
-   {{$posts->links()}}
+   <div class="flex justify-center ">{{$posts->links()}}</div>
 
  @else
           <p class="text-center"> NO , Posts  </p>

@@ -19,8 +19,10 @@ return new class extends Migration
             $table->string('title');
             $table->text('body');
             $table->text('excerpt');
+            $table->string('thumbnail')->nullable();
             $table->timestamps();
             $table->timestamp('published_at')->nullable();
+
         });
     }
 

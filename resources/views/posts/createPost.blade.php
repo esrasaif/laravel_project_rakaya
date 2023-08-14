@@ -7,7 +7,7 @@
 
 
 
-                <form method="POST" action="/admin/posts" class="mt-10">
+                <form method="POST" action="/admin/posts" class="mt-10"   enctype=multipart/form-data>
 
                 @csrf
        
@@ -37,12 +37,13 @@
                 {{-- excerpt --}}
                 <div class="mb-6">
                 <label for="excerpt" class="block mb-2 uppercase font-bold text-xs text-gray-900">excerpt</label>
-                <input type="text" id="excerpt" name="excerpt" value="{{old('excerpt')}}" required class="border border-gray-400 p-2 w-full rounded-xl" placeholder="">
-    
+                {{-- <input type="text" id="excerpt" name="excerpt" value="{{old('excerpt')}}" required class="border border-gray-400 p-2 w-full rounded-xl" placeholder=""> --}}
+                 <textarea name="excerpt" id="excerpt" cols="30" rows="5" required class="border border-gray-400 p-2 w-full rounded-xl" placeholder=""> {{old('excerpt')}}</textarea>
+
+
                 @error('excerpt')
                     <p class= "text-red-300 text-xs mt-1">{{$message}}</p>
                 @enderror
-    
                 </div>
         
 
@@ -59,6 +60,18 @@
     
                 </div>
                
+                {{-- thumbnails --}}
+
+           
+                        <div class="mb-6">
+                          <label for="thumbnail" class="block mb-2 uppercase font-bold text-xs text-gray-900">slug</label>
+                          <input type="file" id="thumbnail" name="thumbnail" value="{{old('slug')}}" required class="border border-gray-400 p-2 w-full rounded-xl" placeholder="">
+           
+                          @error('thumbnail')
+                           <p class= "text-red-300 text-xs mt-1">{{$message}}</p>
+                          @enderror
+           
+                        </div>
               
                 {{-- category --}}
              <div class="relative  rounded-xl">
@@ -70,15 +83,15 @@
 
                 <label for="category_id" class="block mb-2 uppercase font-bold text-xs text-gray-900">Select category</label>
  
-                   <select name="category" id="category_id" class="bg-gray-200 rounded-sm p-2" >
+                   <select name="category_id" id="category_id" class="bg-gray-200 rounded-sm p-2" >
 
                         @foreach( $categories as $category)
-                         <option value="{{$category->id}}"  {{old('category') == $category->id ? 'selected'  :'' }}  >  {{ucwords($category->name)}} </option>
+                         <option value="{{$category->id}}"  {{old('category_id') == $category->id ? 'selected'  :'' }}  >  {{ucwords($category->name)}} </option>
                         @endforeach
 
                   </select>  
 
-                    @error('category')
+                    @error('category_id')
                     <p class= "text-red-300 text-xs mt-1">{{$message}}</p>
                     @enderror
                 </div>
@@ -96,4 +109,6 @@
             </form>
           </main>
         </section>
+
+
 </x-layout>

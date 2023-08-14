@@ -30,7 +30,7 @@ Route::get('/logIn',  [SessionsController::class , 'createSession'])->middleware
 Route::post('/logIn',  [SessionsController::class , 'storeSession'])->middleware('guest');
 
 Route::get('/admin/posts/createPost',  [postController::class , 'createPost'])->middleware('admin');
-Route::post('/admin/posts',  [postController::class , 'storePost'])->middleware('admin');
+Route::post('/admin/posts', [postController::class ,'storePost'])->middleware('admin');
 
 
 // Route::get('categories/{category}', function (Category $category) 
