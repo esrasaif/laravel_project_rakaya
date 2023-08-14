@@ -1,11 +1,6 @@
-<x-layout>
-        <section class="px-6 py-8">
-
-            <h1 class="text-center font-light text-xl  text-blue-400 ">Create your post</h1>
+<x-setting heading="Add new Post" >
 
             <main class="max-w-lg mx-auto mt-10 border border-gray-300 bg-gray-100 p-6 rounded-xl ">
-
-
 
                 <form method="POST" action="/admin/posts" class="mt-10"   enctype=multipart/form-data>
 
@@ -15,7 +10,7 @@
                 <x-formPieces.input name="slug" />
                 <x-formPieces.textarea name="excerpt" />
                 <x-formPieces.textarea name="body" />
-                <x-formPieces.input name="thumbnail" type="file" />
+                <x-formPieces.input name="thumbnail" type="file"  />
 
         
                 {{-- category --}}
@@ -48,7 +43,5 @@
 
             </form>
           </main>
-        </section>
 
-
-</x-layout>
+</x-setting>

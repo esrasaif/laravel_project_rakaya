@@ -28,15 +28,6 @@ class postController extends Controller
     // }
     // // end index fun
 
-
-
-
-
-
-
-
-
-
     public function show(Post $post )
     {
         return view('posts.show', ['post' => $post ]);

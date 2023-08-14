@@ -9,10 +9,10 @@
 
             @csrf
               {{-- email --}}
-              <x-formPieces.input name="email" type="email" />
+              <x-formPieces.input name="email" type="email" autocomplete="username" />
 
               {{-- pass --}}
-              <x-formPieces.input name="password" type="password" />
+              <x-formPieces.input name="password" type="password" autocomplete="new-password" />
     
               {{-- submit --}}
               <x-formPieces.button name="Log In" />
