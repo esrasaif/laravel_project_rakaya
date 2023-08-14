@@ -23,6 +23,7 @@ class RegisterController extends Controller
             'username'=>'required|min:3|max:255|unique:users,username',
             'email'=>'required|email|unique:users,email',
             'password'=>'required|min:8|max:255',
+
         
             // 'name'=>['required','min:3','max:255'],
             // 'username'=>['required','min:3','max:255'],
