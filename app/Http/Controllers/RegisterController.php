@@ -42,7 +42,6 @@ class RegisterController extends Controller
         // here automatically this flash message will stored in the session so we can access to it across the session
         return redirect('/')->with("success","Welcome , your account created !");
 
-
 }
 
 

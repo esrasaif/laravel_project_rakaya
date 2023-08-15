@@ -7,6 +7,9 @@
 {{-- image in title bar --}}
 <link rel="icon" type="image/x-icon" href="/images/tinywow_change_bg_photo_24059822.png">
 
+{{-- flowbite --}}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.css" rel="stylesheet" />
+
 {{-- alpine.js   javascript framework --}}
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.3/dist/cdn.min.js"></script>
 
@@ -29,7 +32,8 @@
                 <x-slot name="trigger">   
 
                     <button  class= "flex inline-flex bg-gray-200 rounded-xl py-2 pl-3 pr-9 text-xs w-full font-semibold lg:w-32 text-left flex lg:inline-flex">
-                           <p class="text-gray-900">Wellcome {{auth()->user()->name}}</p>
+                        
+                        <p class="text-gray-900">Wellcome {{auth()->user()->name}}</p>
                         <svg class="transform -rotate-90 absolute pointer-events-none" style="right: 12px;" width="22"
                                 height="22" viewBox="0 0 22 22">
                                 <g fill="none" fill-rule="evenodd">
@@ -45,7 +49,7 @@
                 
            
                 <x-dropdownItemStyle href="/admin/posts/createPost/" :active="request()->is('/admin/posts/createPost')">Add Post</x-dropdownItemStyle>
-                <x-dropdownItemStyle href="/admin/Dashboard" :active="request()->is('/admin/posts/Dashboard')">Dashboard</x-dropdownItemStyle>
+                <x-dropdownItemStyle href="/admin/posts" :active="request()->is('/admin/posts')">Dashboard</x-dropdownItemStyle>
                 <x-dropdownItemStyle href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()">Log Out</x-dropdownItemStyle>
 
                
@@ -66,9 +70,9 @@
 
             @endauth
 
-                {{-- <a href="#" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
+                <a href="#" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
                     Subscribe for Updates
-                </a> --}}
+                </a>
 
             </div>
         </nav>

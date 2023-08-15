@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\postController;
 use App\Http\Controllers\SessionsController;
@@ -29,8 +30,13 @@ Route::post('/logOut',  [SessionsController::class , 'destroySession'])->middlew
 Route::get('/logIn',  [SessionsController::class , 'createSession'])->middleware('guest');
 Route::post('/logIn',  [SessionsController::class , 'storeSession'])->middleware('guest');
 
-Route::get('/admin/posts/createPost',  [postController::class , 'createPost'])->middleware('admin');
-Route::post('/admin/posts', [postController::class ,'storePost'])->middleware('admin');
+Route::get('/admin/posts/createPost',  [AdminController::class , 'createPost'])->middleware('admin');
+Route::post('/admin/posts', [AdminController::class ,'storePost'])->middleware('admin');
+
+
+Route::get('/admin/posts',  [AdminController::class , 'index'])->middleware('admin');
+Route::post('/admin/posts/{post}/edit',  [AdminController::class , 'edit'])->middleware('admin');
+
 
 
 // Route::get('categories/{category}', function (Category $category) 

@@ -28,6 +28,10 @@ return [
     |
     */
 
+
+    'disks' => [
+
+        
     'public' => [
         'driver' => 'local',
         'root' => storage_path('app/public'),
@@ -36,8 +40,6 @@ return [
         'throw' => false,
     ],
 
-
-    'disks' => [
 
         'local' => [
             'driver' => 'local',

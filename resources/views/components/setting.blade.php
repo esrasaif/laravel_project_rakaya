@@ -7,12 +7,12 @@
      
     <div class="flex ">
 
-        <aside class="w-64 rounded-xl p-6">
-            <h4 class="font-bold mb-4">Navigations</h4>
+        <aside class="w-64 rounded-xl p-6  ">
+            <h4 class="font-bold mb-4">Dashboard</h4>
 
             <ul>
              <li> <a href="/admin/posts/createPost" class="{{ request()->is('admin/posts/createPost') ? 'text-blue-900': '' }} ">Add Post</a>  </li>
-             <li> <a href="/admin/Dashboard" class="{{ request()->is("admin/Dashboard") ? 'text-gray-900': '' }} " >Dashboard</a>  </li>
+             <li> <a href="/admin/posts" class="{{ request()->is("admin/posts") ? 'text-blue-900': '' }} " >All posts</a>  </li>
             </ul>
 
         </aside>
