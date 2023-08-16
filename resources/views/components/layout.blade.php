@@ -23,6 +23,7 @@
                 </a>
             </div>
 
+
          <div class="mt-8 md:mt-0 flex items-center">
 
             @auth
@@ -47,12 +48,13 @@
             
                 </x-slot>    
                 
-           
+               @admin
                 <x-dropdownItemStyle href="/admin/posts/createPost/" :active="request()->is('/admin/posts/createPost')">Add Post</x-dropdownItemStyle>
                 <x-dropdownItemStyle href="/admin/posts" :active="request()->is('/admin/posts')">Dashboard</x-dropdownItemStyle>
+                @endadmin
+
                 <x-dropdownItemStyle href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()">Log Out</x-dropdownItemStyle>
 
-               
                 <form action="/logOut" id="logout-form" method="POST" class="text-xs font-bold uppercase " class="hidden">
                     @csrf
                  </form>
