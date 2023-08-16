@@ -11,7 +11,7 @@ class AdminController extends Controller
     // view all posts
     public function index()
     { 
-        return view('admin.posts.index',['posts'=> Post::paginate(5) ]);
+        return view('admin.posts.index',['posts'=> Post::paginate(30) ]);
 
     }
 
@@ -51,8 +51,6 @@ class AdminController extends Controller
 
     // create post
      Post::create($validatedAttributes);
-
-
         // view
         return redirect('/');
 
@@ -63,7 +61,6 @@ class AdminController extends Controller
      public function edit(Post $post )
      {
          return view('admin.posts.edit', ['post' => $post ]);
-
      }
 
       
@@ -76,14 +73,21 @@ class AdminController extends Controller
         // validate
         $validatedAttributes = request()->validate([
                
-            'thumbnail' => 'required|image',
+            'thumbnail' => 'image',
             'title' => 'required',
             'body' => 'required',
             'excerpt' => 'required',
             'category_id' => ['required', Rule::exists('categories','id')],
-            'slug' => ['required', Rule::unique('posts','slug')]
+            'slug' => ['required', Rule::unique('posts','slug')->ignore($post->id)]
 
         ]);
+ 
+           if(isset($validatedAttributes['thumbnail']))
+           {
+            $validatedAttributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+
+           }
+
 
       $post->update($validatedAttributes);
       return back()->with('success','post updated ');
@@ -93,8 +97,15 @@ class AdminController extends Controller
 
 
 
+    public function destroy(Post $post)
+      {
+          
+      $post->delete();
+      return back()->with('success','post deleted ');
 
+    
 
+      }
 
 
 

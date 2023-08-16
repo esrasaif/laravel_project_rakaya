@@ -30,12 +30,17 @@ Route::post('/logOut',  [SessionsController::class , 'destroySession'])->middlew
 Route::get('/logIn',  [SessionsController::class , 'createSession'])->middleware('guest');
 Route::post('/logIn',  [SessionsController::class , 'storeSession'])->middleware('guest');
 
+
+// admin 
 Route::get('/admin/posts/createPost',  [AdminController::class , 'createPost'])->middleware('admin');
 Route::post('/admin/posts', [AdminController::class ,'storePost'])->middleware('admin');
 
 
 Route::get('/admin/posts',  [AdminController::class , 'index'])->middleware('admin');
-Route::post('/admin/posts/{post}/edit',  [AdminController::class , 'edit'])->middleware('admin');
+Route::get('/admin/posts/{post}/edit',  [AdminController::class , 'edit'])->middleware('admin');
+
+Route::patch('/admin/posts/{post}',  [AdminController::class , 'update'])->middleware('admin');
+Route::delete('/admin/posts/{post}', [AdminController::class , 'destroy'])->middleware('admin');
 
 
 

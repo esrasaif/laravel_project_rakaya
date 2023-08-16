@@ -12,13 +12,13 @@
         <img src= "/storage/{{$post->thumbnail}}" alt="image not found" class="rounded-xl w-32 h-auto">
     </div>
 
-    <div class="flex-1 flex flex-col justify-between">
+    <div class="flex-1 flex flex-col justify-between mt-6">
 
         <header class="mt-8 lg:mt-0">
 
             {{-- category --}}
             <div class="space-x-2">
-              <x-category-button :category = "$post->category"/>
+              <x-category-button :category= "$post->category->name" />
             </div>
 
             <div class="mt-4">

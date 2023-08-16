@@ -7,10 +7,10 @@
             <tr>
                
                 <th scope="col" class="px-6 py-3">
-                    Name
+                    Author
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    title
+                    Title
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Publish
@@ -54,11 +54,27 @@
                     </div>
                 </td>
 
-                <td class="px-6 py-4 flex inline space-x-2">
-                    <a href="#" class="font-medium text-green-600 dark:text-blue-500 hover:underline">Edit </a>
-                    <a href="/admin/posts/{post}/edit" class="font-medium text-red-600 dark:text-blue-500 hover:underline">Delete </a>
 
-                </td>
+
+                    <td class="px-6 py-4 space-x-4  flex inline">
+                         <a href="/admin/posts/{{$post->id}}/edit" class="font-medium text-green-600 dark:text-blue-500 hover:underline text-xs ">Edit</a>
+                
+                
+                            <form action="/admin/posts/{{$post->id}}" method="POST">
+
+                                @csrf
+                                @method('DELETE')
+                              
+                                <button class="text-xs font-medium  hover:font-bolder hover:text-red-900 hover:underline text-red-600">Delete</button>
+                        
+                            </form>
+                    </td>
+
+
+
+
+
+
             </tr>
             @endforeach
 
