@@ -31,7 +31,7 @@ class Post extends Model
             // $query->where(fn( $query) =>
                 $query
                 ->where( 'title','like','%'.$search.'%' )
-                ->orWhere( 'body','like','%'.$search.'%' );
+                ->orWhere( 'excerpt','like','%'.$search.'%' );
                 // );
         });
        

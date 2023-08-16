@@ -32,30 +32,15 @@ Route::post('/logIn',  [SessionsController::class , 'storeSession'])->middleware
 
 
 // admin 
-Route::get('/admin/posts/createPost',  [AdminController::class , 'createPost'])->middleware('can:admin');
-Route::post('/admin/posts', [AdminController::class ,'storePost'])->middleware('can:admin');
-Route::get('/admin/posts',  [AdminController::class , 'index'])->middleware('can:admin');
-Route::get('/admin/posts/{post}/edit',  [AdminController::class , 'edit'])->middleware('can:admin');
-Route::patch('/admin/posts/{post}',  [AdminController::class , 'update'])->middleware('can:admin');
-Route::delete('/admin/posts/{post}', [AdminController::class , 'destroy'])->middleware('can:admin');
+Route::middleware('can:admin')->group(function()
+{
 
+Route::get('/admin/posts/createPost',[AdminController::class , 'createPost']);
+Route::post('/admin/posts', [AdminController::class ,'storePost']);
+Route::get('/admin/posts',  [AdminController::class , 'index']);
+Route::get('/admin/posts/{post}/edit',  [AdminController::class , 'edit']);
+Route::patch('/admin/posts/{post}',  [AdminController::class , 'update']);
+Route::delete('/admin/posts/{post}', [AdminController::class , 'destroy']);
 
+});
 
-// Route::get('categories/{category}', function (Category $category) 
-// {
-//     return view('/posts', ['posts' => $category->posts ,
-//     'currentCategory' => $category ,
-//     'categories' => Category::all() ]);
-// })
-// ->where('category', '[A-z0-9_\-]+')
-// ->name('category');
-
-
-// // find the author as its primary key the usernamme not the id 
-// Route::get('authors/{author:username}', function (User $author) {
-// //    dd($author);
-//     return view('posts.show', ['posts' => $author->posts ]);
-    
-    
-//     });
-    

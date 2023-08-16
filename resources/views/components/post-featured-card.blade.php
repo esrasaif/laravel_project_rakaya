@@ -15,12 +15,14 @@ class="transition-colors duration-300 hover:bg-gray-100 border border-black bord
 
             {{-- category --}}
             <div class="space-x-2">
-                <a href="/categories/{{$post->category->id}}"
+                {{-- <a href="/?category={{$post->category->id}}"
                    class="px-3 py-1 border border-red-300 rounded-full text-red-300 text-xs uppercase font-semibold"
                    style="font-size: 10px">
                    {{$post->category->name}}
                 
-                </a>
+                </a> --}}
+                <x-category-button :category="$post->category" />
+
             </div>
 
             <div class="mt-4">
