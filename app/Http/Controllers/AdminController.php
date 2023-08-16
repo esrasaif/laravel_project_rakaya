@@ -32,27 +32,13 @@ class AdminController extends Controller
             //  return 'done'.$path;
 
 
-        // validate
-        $validatedAttributes = request()->validate([
-               
-            'thumbnail' => 'required|image',
-            'title' => 'required',
-            'body' => 'required',
-            'excerpt' => 'required',
-            'category_id' => ['required', Rule::exists('categories','id')],
-            'slug' => ['required', Rule::unique('posts','slug')]
-
-        ]);
-
-      
-    $validatedAttributes['user_id'] =  auth()->id();
-    // store in both database and localstorage inlaravel
-    $validatedAttributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
-
-    // create post
-     Post::create($validatedAttributes);
-        // view
-        return redirect('/');
+            $validatedAttributes= $this->validatePost();
+            $validatedAttributes['user_id'] =  auth()->id();
+            $validatedAttributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+            // create post
+            Post::create($validatedAttributes);
+            // view
+            return redirect('/');
 
     }
 
@@ -64,25 +50,14 @@ class AdminController extends Controller
      }
 
       
-     public function update(Post  $post)
+     public function update(Post  $post )
     {
             // $path= ddd(request()->file('thumbnail')->store('thumbnails'));
             //  return 'done'.$path;
 
-
-        // validate
-        $validatedAttributes = request()->validate([
-               
-            'thumbnail' => 'image',
-            'title' => 'required',
-            'body' => 'required',
-            'excerpt' => 'required',
-            'category_id' => ['required', Rule::exists('categories','id')],
-            'slug' => ['required', Rule::unique('posts','slug')->ignore($post->id)]
-
-        ]);
+            $validatedAttributes= $this->validatePost($post);
  
-           if(isset($validatedAttributes['thumbnail']))
+           if($validatedAttributes['thumbnail']?? false)
            {
             $validatedAttributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
 
@@ -103,11 +78,28 @@ class AdminController extends Controller
       $post->delete();
       return back()->with('success','post deleted ');
 
-    
 
       }
 
 
+
+      protected  function validatePost(?Post $post = null)
+      {
+            $post ??= new Post();
+            
+            // validate
+            return request()->validate([
+                
+                'thumbnail' => $post->exists ?['image'] : ['image' ,'required'],
+                'title' => 'required',
+                'body' => 'required',
+                'excerpt' => 'required',
+                'category_id' => ['required', Rule::exists('categories','id')],
+                'slug' => ['required', Rule::unique('posts','slug')->ignore($post->id)]
+
+            ]);
+
+      }
 
 
 

@@ -5,7 +5,7 @@ class="transition-colors duration-300 hover:bg-gray-100 border border-black bord
 <div class="py-6 px-5 lg:flex">
     <div class="flex-1 lg:mr-8">
 
-        <img src= "/storage/{{$post->thumbnail}}" alt=" Post not found " class="rounded-xl">
+        <img src= "/storage/{{$post->thumbnail}}" alt=" Post not found " class="rounded-xl"  height="100" width="100" >
 
     </div>
 
