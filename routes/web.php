@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\postController;
 use App\Http\Controllers\SessionsController;
@@ -44,3 +45,6 @@ Route::delete('/admin/posts/{post}', [AdminController::class , 'destroy']);
 
 });
 
+
+// comment
+Route::post('/posts/{post:slug}/comments',  [CommentController::class , 'addComment'] );

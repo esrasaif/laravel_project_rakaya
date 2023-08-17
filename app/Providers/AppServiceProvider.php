@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
+
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Gate;
@@ -23,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+           Model::unguard();
 
            Paginator::useTailwind();   //this is the default 
 

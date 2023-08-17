@@ -1,3 +1,3 @@
- <div {{$attributes(['class' => 'border p-6  rounded-xl p-6' ])}} >
+ <div {{$attributes(['class' => 'border p-4 rounded-xl ' ])}} >
     {{$slot}}
  </div>
