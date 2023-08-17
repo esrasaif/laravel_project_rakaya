@@ -81,6 +81,14 @@ class Post extends Model
     }
     // end fun
 
+    public function comments()
+    {
+    //    here we define the relationship type between any post object and the category class
+        return $this->hasMany(Comment::class);
+
+
+    }
+    // end fun
 
 
 

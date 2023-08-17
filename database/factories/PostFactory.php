@@ -23,13 +23,19 @@ class PostFactory extends Factory
         $faker = \Faker\Factory::create(); // Create a new Faker instance
 
         return [
+            // 'category_id' => Category::factory(),
+            // 'user_id' => User::factory(),
+            // 'slug' => $this->$faker->slug(),
+            // 'title' =>$this->$faker->sentence(),
+            // 'body' =>$faker->sentence,
+            // 'excerpt' =>$faker->paragraph(2)
+
             'category_id' => Category::factory(),
             'user_id' => User::factory(),
             'slug' =>$faker->sentence,
             'title' =>$faker->sentence,
             'body' =>$faker->sentence,
             'excerpt' =>$faker->paragraph(2)
-
         ];
     }
 

@@ -16,8 +16,11 @@ class CategoryFactory extends Factory
      */
     public function definition(): array
     {
+
         return [
            
+            //   'slug' => $this->faker->slug,
+            // 'name' =>$this->faker->word
             'slug' => $this->faker->slug,
             'name' =>$this->faker->word
         ];

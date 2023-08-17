@@ -27,8 +27,10 @@ class="transition-colors duration-300 hover:bg-gray-100 border border-black bord
 
             <div class="mt-4">
                 <h1 class="text-3xl">
-                    <a href="/posts/{{$post->slug}}"></a>
-                     {{$post->title}}
+                    <a href="/posts/{{$post->id}}">
+                        {{$post->title}}
+                    </a>
+                    
                 </h1>
 
                 <span class="mt-2 block text-gray-400 text-xs">
