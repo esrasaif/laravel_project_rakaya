@@ -15,6 +15,52 @@ use Illuminate\Support\Facades\Redirect;
 use League\CommonMark\Extension\FrontMatter\Data\SymfonyYamlFrontMatterParser;
 use Symfony\Component\Yaml\Yaml;
 use Spatie\YamlFrontMatter\YamlFrontMatter; 
+// use MailchimpMarketing\ApiClient;
+use MailchimpMarketing\ApiClient;
+
+
+
+Route::get('newsletter',function(){
+  
+    $mailchimp = new ApiClient();
+
+
+$mailchimp->setConfig([
+	'apiKey' => config('services.mailchimp.key'),
+	'server' => 'us17'
+    
+]);
+
+try 
+{
+    // $response =  $mailchimp->ping->get();
+    $response =  $mailchimp->lists->getAllLists();
+
+    dd($response);
+
+} 
+catch (Exception $e) 
+{
+    // Handle the exception, e.g., log or display an error message.
+    dd($e->getMessage());
+}
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Route::get('/', [postController::class , 'index'])->name('home');
@@ -48,3 +94,4 @@ Route::delete('/admin/posts/{post}', [AdminController::class , 'destroy']);
 
 // comment
 Route::post('/posts/{post:slug}/comments',  [CommentController::class , 'addComment'] );
+
