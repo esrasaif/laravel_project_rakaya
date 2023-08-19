@@ -33,8 +33,8 @@ $mailchimp->setConfig([
 
 try 
 {
-    // $response =  $mailchimp->ping->get();
-    $response =  $mailchimp->lists->getAllLists();
+    $response =  $mailchimp->ping->get();
+    // $response =  $mailchimp->lists->getAllLists();
 
     dd($response);
 
