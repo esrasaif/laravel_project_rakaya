@@ -1,7 +1,11 @@
 <header class="max-w-xl mx-auto mt-20 text-center">
+
+    {{-- <img src="\images\pexels-fauxels-3183165.jpg" alt="not found" class="w-screen z-1"> --}}
+
     <h1 class="text-2xl mb-4 mt-2">
-        <span class="text-blue-500">AI-based medical</span> 
-  transcription and summarization tool for enhanced healthcare documentation. </h1>
+        <span class="text-gray-500">SCITECH</span> 
+
+      Where Science Meets Technology! Dive into our world where innovation thrives. Stay updated on the latest in science and technology with our engaging articles, reviews, and insights. From groundbreaking discoveries to futuristic gadgets, explore the wonders of SciTech and join our community of tech enthusiasts!    </h1>
 
     <div class="lg:space-y-0 lg:space-x-2  flex inline-flex">
         

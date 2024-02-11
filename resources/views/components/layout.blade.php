@@ -1,11 +1,12 @@
 <!doctype html>
 
-<title>MediScript</title>
+<title>SCITECH</title>
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 {{-- image in title bar --}}
-<link rel="icon" type="image/x-icon" href="/images/tinywow_change_bg_photo_24059822.png">
+<link rel="icon" type="image/x-icon" href="/images/Circuit_Technology_Logo__1_-removebg-preview.png">
+
 
 {{-- flowbite --}}
 <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.css" rel="stylesheet" />
@@ -17,6 +18,8 @@
     html
     {
         scroll-behavior: smooth;
+        /* direction: rtl; */
+
     }
 </style>
 
@@ -25,11 +28,15 @@
         <nav class="md:flex md:justify-between md:items-center ">
             <div>
                 <a href="/">
-                    <img src="/images/tinywow_change_bg_photo_24059822.png" alt="mediscript Logo" width="250" height="64">
+                    <img src="/images/Circuit_Technology_Logo__1_-removebg-preview.png" alt="sciTech Logo" width="300" height="180">
                 </a>
             </div>
 
+              <div>
+            {{-- <a href="/" class=" ml-3 text-xl font-semibold text-blue-900 uppercase py-3 px-5" >oportiounities</a> --}}
+            {{-- <a href="/" class=" ml-3 text-xl font-semibold text-blue-900 uppercase py-3 px-5" >Courses</a> --}}
 
+            </div>
          <div class="mt-8 md:mt-0 flex items-center">
 
             @auth
@@ -73,14 +80,14 @@
 
             @else   
 
-            <a href="/register" class="bg-blue-900 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">Register</a>
-            <a href="/logIn" class="bg-blue-900 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5" >Log In</a>
+            <a href="/register" class="bg-gray-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">Register</a>
+            <a href="/logIn" class="bg-gray-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5" >Log In</a>
 
             @endauth
 
-                <a href="#subscribe" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
+                {{-- <a href="#subscribe" class="bg-blue-800 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
                     Subscribe for Updates
-                </a>
+                </a> --}}
 
             </div>
         </nav>
@@ -95,9 +102,9 @@
 
         <footer id="subscribe" class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
 
-        <div class="mr-96 ">
+        <div class="">
 
-            <img src="\images\headPic.png" alt="" class="mx-auto -mb-6" style="width: 145px;">
+            <img src="/images/Circuit_Technology_Logo__1_-removebg-preview.png" alt="sciTech Logo"  class="mx-auto -mb-6" style="width: 180px;">
             <h5 class="text-3xl mt-6">Stay in touch with the latest Updates</h5>
 
             <div class="mt-10">

@@ -20,7 +20,7 @@
               {{-- pass --}}
               <x-formPieces.input name="password" type="password" />
 
-              {{-- <x-formPieces.input name="password confirm" type="password" /> --}}
+              <x-formPieces.input name="password_confirmation" type="password" />
 
 
 

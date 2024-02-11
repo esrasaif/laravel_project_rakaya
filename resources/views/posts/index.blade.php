@@ -11,7 +11,7 @@
    <div class="flex justify-center ">{{$posts->links()}}</div>
 
  @else
-          <p class="text-center"> NO , Posts  </p>
+          <p class="text-center">  </p>
  @endif
 
 </main>

@@ -9,7 +9,7 @@
 
 
     <div class="flex-1 lg:mr-8">
-        <img src= "/storage/{{$post->thumbnail}}" alt="image not found" class="rounded-xl "height="100" width="100">
+        <img src= "/storage/{{$post->thumbnail}}" alt="image not found" class="rounded-xl ">
     </div>
 
     <div class="flex-1 flex flex-col justify-between mt-6">

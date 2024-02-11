@@ -11,6 +11,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use App\Services\NewsLetter;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
@@ -19,6 +20,7 @@ use Symfony\Component\Yaml\Yaml;
 use Spatie\YamlFrontMatter\YamlFrontMatter; 
 
 
+// Auth::routes(['verify'=>true]);
 
 Route::get('/', [postController::class , 'index'])->name('home');
 Route::post('newsletter' , NewsLetterController::class);

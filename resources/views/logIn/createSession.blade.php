@@ -14,6 +14,24 @@
               {{-- pass --}}
               <x-formPieces.input name="password" type="password" autocomplete="new-password" />
     
+              <div class="flex items-start ">
+
+                <div class="flex items-center h-5 checked:border-gray-900">
+                    <input id="remember" name="remember" aria-describedby="remember" type="checkbox" class="">
+                </div>
+
+                <div class="mx-1 text-sm">
+                    <label for="remember" class="text-gray-500 dark:text-gray-300"> remember me </label>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
               {{-- submit --}}
               <x-formPieces.button name="Log In" />
 
